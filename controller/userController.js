@@ -129,7 +129,7 @@ const resetPassword = async (req, res) => {
         const { email } = req.body;
 
         const user = await User.findOne({ email });
-        if (!user) throw CustomError('Email not found', 404);
+        if (!user) throw new CustomError('Email not found', 404);
 
         var otp = await PassOtp.findOne({ email });
 
