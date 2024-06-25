@@ -54,7 +54,7 @@ const loginUser = async (req, res) => {
 
         res.status(200).json({ fullname: user.fullname, email, token });
     } catch (error) {
-        console.log(error)
+        // console.log(error)
         res.status(error.code || 500).json({ error: errorMessage(error) });
     }
 }
@@ -78,8 +78,6 @@ const signupUser = async (req, res) => {
 }
 
 const verify = async (req, res) => {
-    // console.log(req.query);
-    // res.json(req.query);
     try {
         const { email, token } = req.params;
 
@@ -144,7 +142,7 @@ const resetPassword = async (req, res) => {
         }
 
     } catch (error) {
-        console.log(error)
+        // console.log(error)
         res.status(error.code || 500).json({ error: errorMessage(error) });
     }
 }
@@ -154,5 +152,6 @@ module.exports = {
     signup: signupUser,
     verify,
     changePassword,
-    resetPassword
+    resetPassword,
+    errorMessage
 }

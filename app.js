@@ -11,8 +11,8 @@ app.use('/todo-api/user', userRouter);
 app.use('/todo-api/task', taskRouter);
 
 mongoose.connect(process.env.DB_URL).then(() => {
-    app.listen(4000, () => {
-        console.log('listening at port 4000');
+    app.listen(process.env.PORT, () => {
+        console.log('listening at port ' + process.env.PORT);
     });
 }).catch((error) => {
     console.log(error);

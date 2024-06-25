@@ -1,6 +1,9 @@
 const express = require('express');
 const { addTask, deleteTask, updateTask, getAllTasks } = require('../controller/taskController');
 const taskRouter = express.Router();
+const requireAuth = require('../middleware/requireAuth');
+
+taskRouter.use(requireAuth);
 
 // Add a task
 taskRouter.post('', addTask);
@@ -9,10 +12,10 @@ taskRouter.post('', addTask);
 taskRouter.get('', getAllTasks);
 
 // update a task
-taskRouter.patch('', updateTask);
+taskRouter.patch('/:id', updateTask);
 
 // Delete a task
-taskRouter.delete('', deleteTask);
+taskRouter.delete('/:id', deleteTask);
 
 
 module.exports = taskRouter;

@@ -7,10 +7,7 @@ const taskSchema = new Schema({
         type: String,
         required: true
     },
-    category: {
-        type: String,
-        required: true
-    },
+    category: { type: String, required: true },
     is_completed: {
         type: Boolean,
         required: true
@@ -24,6 +21,12 @@ const taskSchema = new Schema({
     },
     remind_date: {
         type: Date
+    },
+    user_id: {
+        type: String,
+        required: true,
+        unique: false,
+        ref: 'users'
     }
 }, { timestamps: true })
 
